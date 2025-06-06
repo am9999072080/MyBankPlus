@@ -1,5 +1,6 @@
 >> My-Bank+ is an example of a simple project with a basic level of functionality.
 
+![Bank+](https://github.com/user-attachments/assets/07d0a2dc-a834-4093-b174-e6ffc158f7fb)
 
 
 ### Service capabilities:
