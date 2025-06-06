@@ -1,0 +1,35 @@
+<div th:fragment="header" xmlns:th="http://www.w3.org/1999/xhtml">
+    <div class="d-flex flex-column flex-md-row align-items-center pb-3 mb-4 border-bottom">
+        <a href="/" class="d-flex align-items-center link-body-emphasis text-decoration-none">
+            <svg xmlns="http://www.w3.org/2000/svg" width="40" height="32" class="me-2" viewBox="0 0 118 94" role="img">
+                <title>Bootstrap</title>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvtxRhJJPQyDhEVbrUT9cUSLAPM4KBnocZIQ&amp;usqp=CAU"
+                     jsaction="VQAsE" class="sFlh5c pT0Scc" alt="MyBank - Home" jsname="JuXqh"
+                     style="max-width: 800px; width: 120px; height: 80px; margin: 0px;" data-iml="62817">
+                <img style="max-width: 500px; width: 50px; height: 50px; margin: 0;" data-iml="62817" ;
+                     src="https://user-images.githubusercontent.com/7825971/46363513-2a671880-c66b-11e8-9045-80c8f0405871.gif">
+                <a>&emsp;&emsp;&emsp;
+                    <time id="currentTime"></time>
+                </a>
+            </svg>
+
+            <script>
+                const timeElement = document.getElementById('currentTime');
+                setInterval(function () {
+                    const currentTime = new Date();
+                    timeElement.textContent = currentTime.toLocaleDateString() + "_" + currentTime.toLocaleTimeString();
+                }, 1000);
+            </script>
+        </a>
+        <section class="py-1 text-center container">
+            <h3 th:text="${title}"></h3>
+        </section>
+
+        <nav class="d-inline-flex mt-2 mt-md-0 ms-md-auto">
+            <a class="p-4 text-blue" href="/without-auth/home">ГЛАВНАЯ</a>
+            <a class="p-4 text-blue" href="/without-auth/main">Л/К</a>
+            <a class="p-4 text-dark" href="/without-auth/exchange">БИЗНЕС</a>
+            <a class="p-4 text-dark" href="/without-auth/about">КАРТЫ</a>
+        </nav>
+    </div>
+</div>

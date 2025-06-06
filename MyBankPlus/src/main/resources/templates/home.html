@@ -1,0 +1,44 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+<title th:text="${title}"/>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css">
+<body>
+<header th:insert="~{section/header::header}"></header>
+
+<div class="container mt-1">
+    <section class="py-1 text-center container">
+        <h1>Gini coefficient - в клиентской базе MyBank+:</h1>
+
+        <h1 th:text="${calculateGiniCoefficient}"></h1>
+    </section>
+    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQvtxRhJJPQyDhEVbrUT9cUSLAPM4KBnocZIQ&amp;usqp=CAU"
+         jsaction="VQAsE" class="sFlh5c pT0Scc" alt="MyBank - Home" jsname="JuXqh"
+         style="max-width: 1000px; width: 350px; height: 250px; margin: 0;" data-iml="62817">
+    <img src="https://user-images.githubusercontent.com/7825971/46363513-2a671880-c66b-11e8-9045-80c8f0405871.gif"
+         style="max-width: 500px; width: 100px; height: 100px; margin: 0;" data-iml="62817">
+    <a href="http://waksoft.susu.ru/wp-content/uploads/2021/07/linear_regression1.gif" target="_blank" rel="noopener">
+        <img src="http://waksoft.susu.ru/wp-content/uploads/2021/07/linear_regression1.gif" alt="" width="35%"
+             class="aligncenter wp-image-32408"></a>
+
+
+    <p class="lead text-body-secondary">
+    <h4 class="fw-light">Как работает сервис:</h4>
+    <li>Чтобы пользоваться приложением MyBank, зайдите в личный кабинет в MyBank&emsp;&#128073&emsp; <a
+            href="/login">В Х О Д</a>&emsp;&emsp;&emsp;&emsp;
+    </li>
+    <li>Пройдите регистрацию в MyBank и войдите в личный кабинет.</li>
+    <li>В MyBank выбираете подходящую операцию.</li>
+    <li>MyBank рассчитывает повышенный кэшбэк или бонусы за эту операцию и начисляет его на Ваш счет.</li>
+    <li>MyBank гарантирует защиту ваших данных за счет безопасного соединения между браузером и сервером и
+        сохранность ваших средств.
+    </li>
+    <li>Подробнее о выборе банковской карты в MyBank&emsp;&#128073&emsp;<a href="/without-auth/about">О КАРТАХ</a></li>
+
+</div>
+
+
+<div th:insert="~{section/footer::footer}"></div>
+
+</body>
+</html>
