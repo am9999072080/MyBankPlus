@@ -11,6 +11,7 @@ import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.web.SecurityFilterChain;
+import org.springframework.security.web.csrf.CookieCsrfTokenRepository;
 
 @Configuration
 @AllArgsConstructor
@@ -20,7 +21,7 @@ public class SecurityConfiguration {
     private final UserDetailsServiceImpl userDetailsService;
 
     @Bean
-    public BCryptPasswordEncoder encoder() {
+    public BCryptPasswordEncoder passwordEncoder() {
         return new BCryptPasswordEncoder();
     }
 
@@ -31,16 +32,17 @@ public class SecurityConfiguration {
         return authenticationConfiguration.getAuthenticationManager();
     }
 
-
     @Bean
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
-        return http.authorizeHttpRequests(requests -> requests.requestMatchers(AUTH_WHITELIST)
+
+        http.csrf(csrf -> csrf.csrfTokenRepository(CookieCsrfTokenRepository.withHttpOnlyFalse()))
+                .authorizeHttpRequests(requests -> requests.requestMatchers(AUTH_WHITELIST)
                         .permitAll()
                         .anyRequest()
                         .authenticated())
                 .formLogin(form -> form.loginPage("/login")
                         .permitAll()).logout((logout) -> logout.permitAll()
-                        .logoutSuccessUrl("/without-auth/home"))
-                .build();
+                        .logoutSuccessUrl("/without-auth/home"));
+        return http.build();
     }
 }
