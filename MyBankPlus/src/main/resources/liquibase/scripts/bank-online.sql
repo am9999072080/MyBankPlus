@@ -17,6 +17,8 @@ create table users
 (
     id            BIGSERIAL PRIMARY KEY,
     first_name    VARCHAR(20),
+    description   TEXT,
+
     last_name     VARCHAR(20),
     middle_name   VARCHAR(20),
     phone_number  VARCHAR(11),
